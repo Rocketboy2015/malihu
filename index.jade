@@ -1,0 +1,33 @@
+//
+   Created by jurung on 15. 11. 6..
+doctype html
+html
+    head
+        title malihu scrollbar with AngularJS
+        link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+        link(href='stylesheets/CustomScrollbar.css', rel='stylesheet')
+        link(href='stylesheets/style.css', rel='stylesheet')
+        script(src='javascripts/jquery-1.11.3.min.js')
+        script(src='javascripts/bootstrap.min.js')
+        script(src="javascripts/angular.min.js")
+        script(src="javascripts/CustomScrollbar.js")
+        script(src="javascripts/script.js")
+
+    body(ng-app="malihu" ng-controller="Ctrl")
+        #modal.modal.fade(tabindex='-1',role='dialog',aria-labelledby='myModalLabel',aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal',aria-label='close')
+                            span(aria-hidden='true') &times;
+                        h4 modal
+                    .modal-body
+                        .content.mCustomScrollbar(data-mcs-theme="minimal-dark" ng-bind="content")
+                    .modal-footer
+                        button.btn.btn-primary(type='button',data-dismiss='modal')
+                            | some button
+                        button.btn.btn-default(type='button',data-dismiss='modal') close
+
+        .btn.btn-primary(type='button',data-toggle='modal',data-target='#modal' ng-click = "setContentLong()") Long
+        .btn.btn-primary(type='button',data-toggle='modal',data-target='#modal' ng-click = "setContentShort()") Short
+
